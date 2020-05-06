@@ -1,11 +1,38 @@
 import Link from 'next/link';
-import {
-  HeaderContainer,
-  NavBar,
-  Logo,
-  CallToAction,
-  NavLinks,
-} from './styles';
+import styled from 'styled-components';
+
+const HeaderContainer = styled.div`
+  height: 80px;
+`;
+const NavBar = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+  position: fixed;
+  width: calc(100% - 80px);
+  background-color: white;
+`;
+const Logo = styled.img`
+  width: 60px;
+`;
+const CallToAction = styled(Link)`
+  display: flex;
+  align-items: center;
+  background-color: #2b1f25;
+  color: white !important;
+  color: white;
+  text-decoration: none;
+  height: 35px;
+  letter-spacing: 2px;
+  padding: 4px 20px;
+  width: fit-content;
+  border-radius: 20px;
+`;
+const NavLinks = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+`;
 
 const Menu = () => (
   <HeaderContainer>
@@ -22,6 +49,8 @@ const Menu = () => (
     </NavBar>
   </HeaderContainer>
 );
+
+export default Menu;
 
 // TODO: Mobile menu
 
@@ -40,5 +69,3 @@ const Menu = () => (
       </ul>
     </div> */
 }
-
-export default Menu;
