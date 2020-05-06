@@ -1,6 +1,7 @@
 import Head from 'next/head';
+import { FC } from 'react';
 
-const HeadComponent = () => (
+const HeadComponent: FC<{}> = () => (
   <Head>
     <meta charSet="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

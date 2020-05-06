@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -34,7 +35,7 @@ const NavLinks = styled.div`
   font-size: 18px;
 `;
 
-const Menu = () => (
+const Menu: FC<{}> = () => (
   <HeaderContainer>
     <NavBar>
       <Link href="#">

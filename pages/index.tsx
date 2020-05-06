@@ -1,28 +1,17 @@
+import { FC } from 'react';
+
 import HeadComponent from './Head';
 import Menu from './Menu';
+import Banner from './Banner';
 
-const HomePage: React.FC<{}> = () => {
+const HomePage: FC<{}> = () => {
   return (
     <div className="container">
       <HeadComponent />
       <body>
         <Menu />
+        <Banner />
 
-        <section id="banner_section">
-          <div className="banner_content">
-            <h1 className="banner_text">A barra natural de proteína</h1>
-            <p>
-              Comida de verdade. <br />
-              Simples. Pura.
-            </p>
-            <a href="#contact" className="cta_button banner_btn">
-              Peça a sua
-            </a>
-          </div>
-          <div className="banner_image">
-            <img src="./img/pura_banner.png" />
-          </div>
-        </section>
         <section id="how_much">
           <div>
             <h2 className="section_title uppercase">Barra de proteína</h2>
