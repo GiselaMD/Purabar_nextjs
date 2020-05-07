@@ -1,8 +1,6 @@
-import { FC } from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
 
-const BannerSection = styled.section`
+export const BannerSection = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,7 +27,7 @@ const BannerSection = styled.section`
   }
 `;
 
-const Content = styled.div`
+export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,7 +44,7 @@ const Content = styled.div`
   }
 `;
 
-const Title = styled.h1`
+export const Title = styled.h1`
   margin: 10px 0;
   font-family: rig-solid-bold-fill, sans-serif;
   font-weight: 700;
@@ -54,7 +52,7 @@ const Title = styled.h1`
   font-size: 60px;
 `;
 
-const Button = styled(Link)`
+export const Button = styled.a`
   align-items: center;
   background-color: #2b1f25;
   color: white !important;
@@ -86,7 +84,7 @@ const Button = styled(Link)`
   }
 `;
 
-const ImageWrapper = styled.div`
+export const ImageWrapper = styled.div`
   width: calc(50% - 80px);
 
   @media screen and (max-width: 1230px) {
@@ -99,7 +97,7 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const BannerImage = styled.img`
+export const BannerImage = styled.img`
   min-width: 200px;
   max-width: 700px;
   width: 100%;
@@ -110,21 +108,3 @@ const BannerImage = styled.img`
     padding: 0;
   }
 `;
-
-const Banner: FC<{}> = () => (
-  <BannerSection>
-    <Content>
-      <Title>A barra natural de proteína</Title>
-      <p>
-        Comida de verdade. <br />
-        Simples. Pura.
-      </p>
-      <Button href="#contact">Peça a sua</Button>
-    </Content>
-    <ImageWrapper>
-      <BannerImage src="./img/pura_banner.png" />
-    </ImageWrapper>
-  </BannerSection>
-);
-
-export default Banner;
