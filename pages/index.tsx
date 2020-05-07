@@ -34,6 +34,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const HomePage: FC<Props> = ({ skus }) => {
+  console.log('skus', skus);
   return (
     <>
       <HeadComponent />

@@ -4,6 +4,7 @@ import Stripe from 'stripe';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import stripeConfig from '../config/stripe';
+import CheckoutButton from '../containers/Home/CheckoutButton';
 
 interface Props {
   sku: Stripe.Sku;
@@ -61,7 +62,7 @@ const Product: FC<Props> = ({ sku }) => (
       {Number(sku.price / 100).toFixed(2)} {sku.currency.toUpperCase()}
     </h2>
 
-    {/* <CheckoutButton skuId={sku.id} itemName={sku.attributes.name} /> */}
+    <CheckoutButton skuId={sku.id} itemName={sku.attributes.name} />
 
     <br />
     <br />

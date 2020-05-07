@@ -2,9 +2,6 @@ import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 
 import stripeConfig from '../../../config/stripe';
-
-const stripePromise = loadStripe(stripeConfig.publicKey);
-
 interface Props {
   skuId: string;
   itemName: string;
@@ -12,7 +9,7 @@ interface Props {
 
 const CheckoutButton: React.FC<Props> = ({ skuId, itemName }) => {
   async function handleClick() {
-    const stripe = await stripePromise;
+    const stripe = await loadStripe(stripeConfig.publicKey);
 
     const { error } = await stripe.redirectToCheckout({
       items: [{ sku: skuId, quantity: 1 }],
