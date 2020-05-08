@@ -15,6 +15,11 @@ const CheckoutButton: React.FC<Props> = ({ skuId, itemName }) => {
       items: [{ sku: skuId, quantity: 1 }],
       successUrl: `http://localhost:3000/success?itemName=${itemName}`,
       cancelUrl: 'http://localhost:3000/canceled',
+      submitType: 'pay',
+      locale: 'pt-BR',
+      shippingAddressCollection: {
+        allowedCountries: ['BR'],
+      },
     });
 
     if (error) {
