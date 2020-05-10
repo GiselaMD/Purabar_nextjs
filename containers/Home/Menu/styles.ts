@@ -19,7 +19,6 @@ export const CallToAction = styled.a`
   align-items: center;
   background-color: #2b1f25;
   color: white !important;
-  color: white;
   text-decoration: none;
   height: 35px;
   letter-spacing: 2px;

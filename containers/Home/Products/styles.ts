@@ -30,17 +30,3 @@ export const ProductsWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: space-evenly;
 `;
-
-export const Product = styled.div`
-  flex: 1;
-  min-width: 330px;
-`;
-
-export const Image = styled.img`
-  width: 50%;
-`;
-
-export const ProductName = styled.p`
-  font-size: 28px;
-  font-family: rig-solid-bold-fill, sans-serif;
-`;

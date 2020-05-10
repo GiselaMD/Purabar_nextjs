@@ -1,26 +1,36 @@
 import React, { FC, useState } from 'react';
-import Stripe from 'stripe';
-import {
-  SectionWrapper,
-  Wapper,
-  Title,
-  ProductsWrapper,
-  Product,
-  Image,
-  ProductName,
-} from './styles';
-import CheckoutButton from '../CheckoutButton';
-import Quantity from './Quantity';
 
-interface Props {
-  skus: Stripe.Sku[];
-}
+import ProductList from './ProductList';
+import CheckoutButton from './CheckoutButton';
 
-export const Products: FC<Props> = ({ skus }) => {
-  const [numItems, setNumItems] = useState(1);
+import { ProductsProps } from './types';
 
-  const addItem = () => setNumItems(num => Math.min(12, num + 1));
-  const removeItem = () => setNumItems(num => Math.max(1, num - 1));
+import { SectionWrapper, Wapper, Title, ProductsWrapper } from './styles';
+
+const Products: FC<ProductsProps> = ({ skus }) => {
+  const initialState = {};
+  skus.forEach(sku => {
+    initialState[sku.id] = { value: 0, label: sku.attributes.name };
+  });
+  const [totalItems, setTotalItems] = useState(initialState);
+
+  const addItem = (id: any) =>
+    setTotalItems({
+      ...totalItems,
+      [id]: {
+        ...totalItems[id],
+        value: Math.min(12, totalItems[id].value + 1),
+      },
+    });
+
+  const removeItem = (id: any) =>
+    setTotalItems({
+      ...totalItems,
+      [id]: {
+        ...totalItems[id],
+        value: Math.max(0, totalItems[id].value - 1),
+      },
+    });
 
   return (
     <SectionWrapper>
@@ -31,22 +41,16 @@ export const Products: FC<Props> = ({ skus }) => {
         </p>
       </Wapper>
       <ProductsWrapper>
-        {skus.map(sku => (
-          <Product key={sku.id}>
-            {sku.image && <Image src={sku.image} />}
-            <ProductName>{sku.attributes.name}</ProductName>
-            <Quantity
-              onAdd={addItem}
-              onRemove={removeItem}
-              quantity={numItems}
-            />
-            <p>R$ {Number((sku.price / 100) * numItems).toFixed(2)}</p>
-
-            <CheckoutButton skuId={sku.id} itemName={sku.attributes.name} />
-          </Product>
-        ))}
+        <ProductList
+          skus={skus}
+          onAdd={addItem}
+          onRemove={removeItem}
+          total={totalItems}
+        />
       </ProductsWrapper>
+      <CheckoutButton totalItems={totalItems} skus={skus} />
     </SectionWrapper>
   );
 };
+
 export default Products;

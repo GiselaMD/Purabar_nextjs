@@ -9,7 +9,7 @@ export const Input = styled.input`
   text-align: center;
   outline: none;
   background: transparent;
-  border: 1px solid #819efc;
+  border: 1px solid #2b1f25;
   color: #000;
   height: 40px;
   user-select: none;
@@ -27,7 +27,7 @@ const Button = styled.span`
   background-color: #2b1f25;
   user-select: none;
   box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 #ffb9f6;
+    inset 0 1px 0 #2b1f25;
 `;
 
 export const DecrementButton = styled(Button)`

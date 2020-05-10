@@ -32,22 +32,20 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const HomePage: FC<Props> = ({ skus }) => {
-  console.log('skus', skus);
-  return (
-    <>
-      <HeadComponent />
-      <body>
-        <Menu />
-        <Banner />
-        <Products skus={skus} />
-        <SellingPoints />
-        <Proposal />
-        <AboutUs />
-        <Contact />
-        <Footer />
-      </body>
-    </>
-  );
-};
+const HomePage: FC<Props> = ({ skus }) => (
+  <>
+    <HeadComponent />
+    <body>
+      <Menu />
+      <Banner />
+      <Products skus={skus} />
+      <SellingPoints />
+      <Proposal />
+      <AboutUs />
+      <Contact />
+      <Footer />
+    </body>
+  </>
+);
+
 export default HomePage;
