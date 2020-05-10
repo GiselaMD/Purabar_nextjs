@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
 import { GetStaticProps } from 'next';
-import Link from 'next/link';
 import Stripe from 'stripe';
 
 import Menu from '../containers/Home/Menu';
 import HeadComponent from '../containers/Home/Head';
 import Banner from '../containers/Home/Banner';
-import HowMuchSection from '../containers/Home/HowMuchSection';
+import Products from '../containers/Home/Products';
 import SellingPoints from '../containers/Home/SellingPoints';
 import Proposal from '../containers/Home/Proposal';
 import AboutUs from '../containers/Home/AboutUs';
@@ -41,29 +40,7 @@ const HomePage: FC<Props> = ({ skus }) => {
       <body>
         <Menu />
         <Banner />
-        {skus.map(sku => (
-          <div key={sku.id}>
-            <h1>{sku.attributes.name}</h1>
-
-            {sku.image && (
-              <img
-                src={sku.image}
-                style={{
-                  width: '100px',
-                }}
-              />
-            )}
-
-            <h2>
-              {Number(sku.price / 100).toFixed(2)} {sku.currency.toUpperCase()}
-            </h2>
-
-            <Link href={'/' + sku.id}>Visit Page</Link>
-
-            <hr />
-          </div>
-        ))}
-        <HowMuchSection />
+        <Products skus={skus} />
         <SellingPoints />
         <Proposal />
         <AboutUs />
